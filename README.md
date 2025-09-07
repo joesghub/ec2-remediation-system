@@ -9,7 +9,7 @@ Key configuration decisions and integration points
 
 
 ## Architecture Diagram
-Visual representation of the complete workflow
+![Visual representation of the complete workflow](https://github.com/joesghub/ec2-remediation-system/blob/main/Diagram.png?raw=true)
 
 
 ## Optimization

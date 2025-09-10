@@ -26,9 +26,19 @@ Key configuration decisions and integration points
 
 ### Step 1: Application Setup
 
+I used ServiceNow Studio to create and manage my application. It bundles your application components together by scope. Did I mention it has **tabs**?!
 
+The Studio saved me a lot of time and kept me in control of my application development process. 
 
+![Creating a scoped application](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/000%20custom%20app.png?raw=true)
 
+### Step 2: Table Setup
+
+**EC2 Instance Table**
+![EC2 Instance Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/001%20ec2%20instance%20table.png?raw=true)
+
+**Remediation Table**
+![Remediation Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/002%20remediation%20table.png?raw=true)
 
 ## Architecture Diagram
 ![Visual representation of the complete workflow](https://github.com/joesghub/ec2-remediation-system/blob/main/Diagram.png?raw=true)

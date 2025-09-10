@@ -95,6 +95,7 @@ The Studio saved me a lot of time and kept me in control of my application devel
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/012%20flow%20a3%20set%20flow%20variables.png?raw=true)
 
 **Action 3:** Accessing Flow Variables
+
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/013%20flow%20a3_1%20variable%20config.png?raw=true)
 
 **Action 3:** Defining Flow Variables

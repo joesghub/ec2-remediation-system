@@ -21,10 +21,11 @@ This system integrates monitoring, AI-powered guidance, Slack notifications, and
 | **Knowledge Base Articles**                    | Document remediation process ("Run the UI Action...") tagged with keywords for AI discoverability.                                                   |
 
 
+## Architecture Diagram
+![Visual representation of the complete workflow](https://github.com/joesghub/ec2-remediation-system/blob/main/Diagram.png?raw=true)
+
+
 ## Implementation Steps
-Key configuration decisions and integration points
-
-
 
 ### Step 1: Application Setup
 
@@ -41,8 +42,8 @@ The Studio saved me a lot of time and kept me in control of my application devel
 **EC2 Instance Table**
 ![EC2 Instance Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/001%20ec2%20instance%20table.png?raw=true)
 
-**Remediation Table**
-![Remediation Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/002%20remediation%20table.png?raw=true)
+**Remediation Log Table**
+![Remediation Log Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/002%20remediation%20table.png?raw=true)
 
 
 
@@ -62,7 +63,6 @@ The Studio saved me a lot of time and kept me in control of my application devel
 
 ### Step 4: UI Action and Script Include Implementation
 
-
 **UI Action Configuration**
 ![UI Action Configuration](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/006%20ui%20action%20trigger%20remediation.png?raw=true)
 
@@ -71,17 +71,16 @@ The Studio saved me a lot of time and kept me in control of my application devel
 
 
 
+
 ### Step 5: Flow Designer Workflow Creation
 
 **Single Flow Designer Worklflow Overview**
 ![Single Flow Designer Workflow Overview](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/008%20flow.png?raw=true)
 
-
 #### Workflow Trigger
 
 **Trigger**: Record created or updated on the EC2 Instance table with an OFF Instance Status
 ![Flow trigger](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/009%20flow%20trigger.png?raw=true)
-
 
 #### Workflow Actions
 
@@ -127,7 +126,19 @@ The Studio saved me a lot of time and kept me in control of my application devel
 
 
 
-### Step 6: AI Search Integration
+
+### Step 6: Knowledge Base Content
+
+**Knowledge Base**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/029%20knowledge%20base.png?raw=true)
+
+**Knowledge Article**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/030%20knowledge%20article.png?raw=true)
+
+
+
+
+### Step 7: AI Search Integration
 
 **Customizing AI Search Custom Code to include KB Article Links**
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/022%20ai%20search%20custom_article%20linking.png?raw=true)
@@ -144,73 +155,43 @@ The Studio saved me a lot of time and kept me in control of my application devel
 **Reviewing "Service Portal Default Search Profile" Configuration**
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/026%20ai%20custom%20search%20default%20search%20app%20profile.png?raw=true)
 
-****
-![]()
+**Updating "Service Portal Knowledge Base Search Source" Configuration**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/027%20ai%20custom%20search%20default%20search%20app%20sources.png?raw=true)
 
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
-
-****
-![]()
+**Verifying KB Article Retreived by updated "Service Portal Knowledge Base Search Source"**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/028%20ai%20custom%20search%20default%20search%20app%20retrievals.png?raw=true)
 
 
 
 
+### Step 8: Testing and Validation
+
+**Final Slack Notifications**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/031%20final%20slack%20cycle.png?raw=true)
+
+**Final EC2 Instance Table**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/032%20final%20ec2%20instance.png?raw=true)
+
+**Final Remediation Log Table**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/033%20final%20remediation%20log.png?raw=true)
+
+**Final Incidents**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/034%20final%20incidents.png?raw=true)
+
+**Final Slack Logs**
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/035%20final%20slack%20logs.png?raw=true)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Architecture Diagram
-![Visual representation of the complete workflow](https://github.com/joesghub/ec2-remediation-system/blob/main/Diagram.png?raw=true)
 
 
 ## Optimization
 How you improved the system for efficiency and reliability
+
+
+
+
 
 
 ## DevOps Usage

@@ -103,7 +103,7 @@ The Studio saved me a lot of time and kept me in control of my application devel
 **Action 4:** Slack EC2 Instance Service Alert
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/015%20flow%20a4%20slack%20issue.png?raw=true)
 
-**Action 5 and 6:** Do and Wait
+**Action 5 and 6:** Do and Wait Until
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/016%20flow%20a5-6%20do%20and%20wait.png?raw=true)
 
 **Trigger Remediation UI Action**
@@ -185,10 +185,18 @@ The Studio saved me a lot of time and kept me in control of my application devel
 
 
 
-
 ## Optimization
 How you improved the system for efficiency and reliability
 
+- Flow Improvements
+-   Flow Variables
+-   Do and Wait Until Trigger
+-   Record Resolution
+-   Notification Insights
+
+- AI Search Custom Improvements
+-   Article Linking
+-   Expanding Search Sources
 
 
 
@@ -196,3 +204,6 @@ How you improved the system for efficiency and reliability
 
 ## DevOps Usage
 Instructions for Netflix DevOps engineers on using the remediation system
+
+- Time between resets vary
+-   Look into standardizing instance reset time. From 2 - 6 minutes for Trigger Remedition UI Action to result in Instance Status update. 

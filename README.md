@@ -13,6 +13,8 @@ The EC2 Remediation System transforms this process by integrating ServiceNow wor
 * **Business resilience** – minimizing the risk of churn and revenue loss during infrastructure disruptions.
 
 
+## Tools and Technologies
+
 | Tool / Technology                              | Purpose / Role                                                                                               | Business Value                                                                                          |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
 | **ServiceNow Platform**                        | Custom tables, Scoped App, UI Action, Script Include, Flow Designer, AI Search integration, and system logs. | Centralized, auditable platform that accelerates incident response and supports operational compliance. |

@@ -67,9 +67,9 @@ The server is sending POST requests to our table.
 
 **ServiceNow Connection & Credential Alias**
 
-- Connection Alias = A shortcut name that points to a connection (like an API endpoint).
+- **Connection Alias:** A shortcut name that points to a connection (like an API endpoint).
 
-- Credential Alias = A shortcut name that points to credentials (like a username, password, or token).
+- **Credential Alias:** A shortcut name that points to credentials (like a username, password, or token).
 
 Instead of hardcoding connection or credentials details in my integration logic, I can reference the alias. This makes it easy to swap out the actual connection or credentials later without changing the code.
 

@@ -59,11 +59,9 @@ The server is sending POST requests to our table.
 
 **ServiceNow Connection & Credential Alias**
 
-Connection and Credential Aliases
+- Connection Alias = A shortcut name that points to a connection (like an API endpoint).
 
-Connection Alias = A shortcut name that points to a connection (like an API endpoint).
-
-Credential Alias = A shortcut name that points to credentials (like a username, password, or token).
+- Credential Alias = A shortcut name that points to credentials (like a username, password, or token).
 
 Instead of hardcoding connection or credentials details in my integration logic, I can reference the alias. This makes it easy to swap out the actual connection or credentials later without changing the code.
 
@@ -79,7 +77,7 @@ Connection = The destination details of a URL or endpoint my integration will ta
 
 **ServiceNow Credential Records (Type: Basic Auth)**
 
-Credential = The secret pass—like username/password or token—used to authenticate a connection.
+**Credential** = The secret pass—like username/password or token—used to authenticate a connection.
 ![ServiceNow Credential Records (Type: Basic Auth)](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/005%20auth%20credentials.png?raw=true)
 
 

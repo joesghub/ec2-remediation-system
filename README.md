@@ -40,12 +40,14 @@ The Studio saved me a lot of time and kept me in control of my application devel
 ### Step 2: Table Setup
 
 **EC2 Instance Table**
+
 Tracks the status of our EC2 instance. This table is connected to the Integration Server through an API.
 
 The server is sending POST and PUT requests to our table.
 ![EC2 Instance Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/001%20ec2%20instance%20table.png?raw=true)
 
 **Remediation Log Table**
+
 Tracks the status of our EC2 instance Remediation Attempts. This table is connected to the Integration Server through an API.
 
 The server is sending POST requests to our table.
@@ -56,12 +58,28 @@ The server is sending POST requests to our table.
 ### Step 3: AWS Integration Configuration
 
 **ServiceNow Connection & Credential Alias**
+
+Connection and Credential Aliases
+
+Connection Alias = A shortcut name that points to a connection (like an API endpoint).
+
+Credential Alias = A shortcut name that points to credentials (like a username, password, or token).
+
+Instead of hardcoding connection or credentials details in my integration logic, I can reference the alias. This makes it easy to swap out the actual connection or credentials later without changing the code.
+
+I think of aliases as labels that keep your integrations flexible and reusable.
 ![ServiceNow Connection & Credential Alias](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/003%20connection%20alias.png?raw=true)
 
+
+
 **ServiceNow HTTP Connection**
+
+Connection = The destination details of a URL or endpoint my integration will talk to.
 ![ServiceNow HTTP Connection](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/004%20http%20connection.png?raw=true)
 
 **ServiceNow Credential Records (Type: Basic Auth)**
+
+Credential = The secret pass—like username/password or token—used to authenticate a connection.
 ![ServiceNow Credential Records (Type: Basic Auth)](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/005%20auth%20credentials.png?raw=true)
 
 
@@ -70,9 +88,13 @@ The server is sending POST requests to our table.
 ### Step 4: UI Action and Script Include Implementation
 
 **UI Action Configuration**
+
+The trigger_EC2_Remediation client-side function runs from a form, grabs the current record’s sys_id, and calls the EC2RemediationHelper Script Include via GlideAjax. It alerts the user whether the remediation request succeeded or failed, then reloads the form so they can see updated information in the Remediation Log.
 ![UI Action Configuration](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/006%20ui%20action%20trigger%20remediation.png?raw=true)
 
 **Script Include Configuration**
+
+The EC2RemediationHelper class exposes a triggerRemediation function that takes an EC2 instance sys_id, looks up the corresponding record, retrieves AWS connection details, and makes a REST API call to start the instance. It logs the request, response, and any errors to a remediation log table, then returns a JSON result with success status, messages, and metadata.
 ![Script Include Configuration](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/007%20script%20include%20remediation%20call.png?raw=true)
 
 
@@ -97,6 +119,8 @@ The server is sending POST requests to our table.
 ![AI Search Custom](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/011%20flow%20a2%20ai%20search.png?raw=true)
 
 **Action 3:** Set Flow Variables
+
+I used FLow variable to include hyperlinks inmy Slack messages.
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/012%20flow%20a3%20set%20flow%20variables.png?raw=true)
 
 **Action 3:** Accessing Flow Variables
@@ -107,15 +131,23 @@ The server is sending POST requests to our table.
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/014%20flow%20a3_2%20variable%20definition.png?raw=true)
 
 **Action 4:** Slack EC2 Instance Service Alert
+
+You can see the data pills I used from the flow variables that uses the links. 
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/015%20flow%20a4%20slack%20issue.png?raw=true)
 
 **Action 5 and 6:** Do and Wait Until
+
+This step allows the flow to wait for the Trigger EC2 Remediation UI Action to complete. 
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/016%20flow%20a5-6%20do%20and%20wait.png?raw=true)
 
 **Trigger Remediation UI Action**
+
+A look at the button on the EC2 Instance Record
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/016%20flow%20a6%20trigger%20remediation.png?raw=true)
 
 **Action 7:** Instance Status is On Trigger
+
+When we receive the updated Instance Status, we can update the Incident Record
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/017%20flow%20a7%20instance%20on%20trigger.png?raw=true)
 
 **Action 8:** Update the Incident Record
@@ -125,11 +157,14 @@ The server is sending POST requests to our table.
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/019%20flow%20a9%20slack%20resolution.png?raw=true)
 
 **Action 9:** Alert Variable Division Function
+
+To enhance the insights of the Slack message I performed two functions on the **Resolve Time** data pill
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/020%20flow%20a9_1%20minutes%20division.png?raw=true)
 
 **Action 9:** Alert Variable Rounding Function
-![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/021%20flow%20a9_2%20minutes%20rounding.png?raw=true)
 
+First I divided the Resolve time by 60 as it is an integer and in seconds. Then I rounded the quotient for a cleaner result. 
+![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/021%20flow%20a9_2%20minutes%20rounding.png?raw=true)
 
 
 

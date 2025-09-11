@@ -72,12 +72,12 @@ I think of aliases as labels that keep your integrations flexible and reusable.
 
 **ServiceNow HTTP Connection**
 
-Connection = The destination details of a URL or endpoint my integration will talk to.
+**Connection:** The destination details of a URL or endpoint my integration will talk to.
 ![ServiceNow HTTP Connection](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/004%20http%20connection.png?raw=true)
 
 **ServiceNow Credential Records (Type: Basic Auth)**
 
-**Credential** = The secret pass—like username/password or token—used to authenticate a connection.
+**Credential:** The secret pass—like username/password or token—used to authenticate a connection.
 ![ServiceNow Credential Records (Type: Basic Auth)](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/005%20auth%20credentials.png?raw=true)
 
 
@@ -118,7 +118,7 @@ The EC2RemediationHelper class exposes a triggerRemediation function that takes 
 
 **Action 3:** Set Flow Variables
 
-I used FLow variable to include hyperlinks inmy Slack messages.
+I used Flow variables to include hyperlinks inmy Slack messages.
 ![](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/012%20flow%20a3%20set%20flow%20variables.png?raw=true)
 
 **Action 3:** Accessing Flow Variables

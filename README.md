@@ -271,6 +271,7 @@ The Search Profile showed me the Search Sources tied to the **Service Portal Def
 I had been advised to move my article into the **"IT" Knowledge Base** since it was the only one the AI Search Custom could find.
 
 That advice worked at the time, but now I finally understood why:
+
 The **Service Portal Default Search Application** didn’t include the "Knowledge" KB as a source!
 
 After adding the "Knowledge" KB to the Search Sources, the article became searchable.

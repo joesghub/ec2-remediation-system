@@ -13,7 +13,7 @@ The EC2 Remediation System transforms this process by integrating ServiceNow wor
 * **Business resilience** – minimizing the risk of churn and revenue loss during infrastructure disruptions.
 
 
-## Tools and Technologies
+## Tools and Technologies Used
 
 | Tool / Technology                              | Purpose / Role                                                                                               | Business Value                                                                                          |
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ The EC2 Remediation System transforms this process by integrating ServiceNow wor
 
 ### Step 1: Application Setup
 
-I used ServiceNow Studio to create and manage my application. It bundles your application components together by scope. Did I mention it has **tabs**?!
+I used ServiceNow Studio to create and manage my application. It bundles your application components together by scope. 
 
 The Studio saved me a lot of time and kept me in control of my application development process. 
 

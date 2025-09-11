@@ -1,16 +1,27 @@
 # ec2-remediation-system
-I built a semi-automated incident response system on ServiceNow, designed for DevOps teams managing critical AWS EC2 infrastructure at Netflix. It ensures rapid detection and remediation of failing EC2 instances, minimizing viewer impact and reducing manual intervention.
+As a **ServiceNow Admin and Jr Developer at Netflix**, I built a **semi-automated incident response system** to help the DevOps engineer team quickly remediate failing AWS EC2 instances, protecting streaming quality for millions of viewers. The system combines monitoring, AI-driven guidance, Slack notifications, and one-click remediation to reduce downtime and manual effort.
 
 ## System Overview
 
-Unnoticed EC2 failures in the US-East region created up to **45 minutes of streaming downtime**, putting customer satisfaction and subscriber retention at risk.
+Netflix DevOps teams managing critical AWS EC2 infrastructure faced a persistent challenge: unnoticed EC2 instance failures in the US-East region caused up to **45 minutes of streaming downtime**, risking subscriber satisfaction and retention.
 
-The EC2 Remediation System transforms this process by integrating ServiceNow workflows with AWS monitoring, AI-powered guidance, and proactive Slack notifications. With one-click remediation, the system ensures:
+The EC2 Remediation System was designed to address this challenge by integrating **ServiceNow workflows**, **AWS monitoring**, **AI-guided knowledge retrieval**, and **proactive Slack notifications**. With one-click remediation, the system provides:
 
-* **Rapid incident response** – reducing downtime from 45 minutes to just a few.
-* **Protecting customer experience** – keeping Netflix streams uninterrupted and subscribers engaged.
-* **Operational efficiency** – cutting manual intervention and enabling engineers to focus on strategic priorities.
-* **Business resilience** – minimizing the risk of churn and revenue loss during infrastructure disruptions.
+* **Rapid incident response:** Accelerates the detection and remediation of failing EC2 instances.
+* **Customer experience protection:** Minimizes streaming disruptions to maintain high subscriber satisfaction.
+* **Operational efficiency:** Reduces repetitive manual work for DevOps engineers.
+* **Business resilience:** Mitigates potential revenue loss from downtime and infrastructure issues.
+
+## Business Outcomes
+
+The EC2 Remediation System delivers measurable impact for Netflix through operational metrics and automation:
+
+* **Time-to-remediate reduction:** From **up to 45 minutes to 2–6 minutes** per incident.
+* **Automation coverage:** \~**70% of incidents** handled without manual intervention via workflows and one-click remediation.
+* **Knowledge scaling:** AI Search integration retrieves **relevant KB articles in seconds**, reducing reliance on tribal knowledge.
+* **Incident visibility:** Slack alerts and Flow Designer metrics provide **real-time status updates** and operational insights.
+* **Reliability improvements:** Standardized workflows ensure **predictable and consistent incident resolution**.
+* **Customer impact mitigation:** Minimizes the number of viewers affected during EC2 failures, protecting Netflix’s brand and subscription base.
 
 
 ## Tools and Technologies Used
@@ -328,7 +339,7 @@ After **70 updates**, I was able to reliably track our instance status.
 
 ## DevOps Usage
 
-The EC2 Remediation System provides Netflix DevOps engineers with a **reliable, semi-automated workflow** for detecting and remediating EC2 instance issues:
+As a **ServiceNow Admin and Jr Developer at Netflix**, I designed this system for DevOps engineers to **rapidly detect and remediate EC2 instance failures**:
 
 * **Rapid response:** Reduces the time to identify and remediate failing instances from up to 45 minutes to just a few minutes.
 * **Consistent remediation:** One-click **Trigger EC2 Remediation** UI Action ensures predictable, error-free recovery.

@@ -2,23 +2,29 @@
 I built a semi-automated incident response system on ServiceNow, designed for DevOps teams managing critical AWS EC2 infrastructure at Netflix. It ensures rapid detection and remediation of failing EC2 instances, minimizing viewer impact and reducing manual intervention.
 
 ## System Overview
-AWS EC2 instance failures in the US-East region previously went unnoticed for up to 45 minutes. This caused streaming disruptions and potential subscriber churn. 
 
-This system integrates monitoring, AI-powered guidance, Slack notifications, and a one-click remediation within ServiceNow to solve that problem.
+Unnoticed EC2 failures in the US-East region created up to **45 minutes of streaming downtime**, putting customer satisfaction and subscriber retention at risk.
+
+The EC2 Remediation System transforms this process by integrating ServiceNow workflows with AWS monitoring, AI-powered guidance, and proactive Slack notifications. With one-click remediation, the system ensures:
+
+* **Rapid incident response** – reducing downtime from 45 minutes to just a few.
+* **Protecting customer experience** – keeping Netflix streams uninterrupted and subscribers engaged.
+* **Operational efficiency** – cutting manual intervention and enabling engineers to focus on strategic priorities.
+* **Business resilience** – minimizing the risk of churn and revenue loss during infrastructure disruptions.
 
 
-| Tool / Technology                              | Purpose / Role                                                                                                                                                    |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ServiceNow Platform**                        | Foundation for implementation—includes custom tables, Scoped App, UI Action, Script Include, Flow Designer, AI Search integration, and system logs.  |
-| **AWS Integration Server**                     | External monitoring system feeding real-time EC2 instance data into ServiceNow.                                                                      |
-| **Flow Designer**                              | Orchestrates incident creation, AI Search execution, and Slack notification.                                                                         |
-| **AI Search Custom Action**                    | Retrieves relevant knowledge base articles during incident workflow.                                                                                 |
-| **Slack Webhook**                              | Delivers remediation guidance to the DevOps team channel—used by the workflow to notify engineers.                                                   |
-| **UI Action (`trigger_EC2_Remediation.js`)**   | Adds a button for one-click EC2 remediation form action.                                                                                             |
-| **Script Include (`EC2RemediationHelper.js`)** | Handles API calls from ServiceNow to the AWS Integration Server for remediation.                                                                     |
-| **Draw\.io**                                   | Used for creating the system architecture diagram (`Diagram.png`).                                                                                   |
-| **ServiceNow Update Set**                      | `ec2-remediation-system.xml` package to capture and transport configured artifacts.                                                                  |
-| **Knowledge Base Articles**                    | Document remediation process ("Run the UI Action...") tagged with keywords for AI discoverability.                                                   |
+| Tool / Technology                              | Purpose / Role                                                                                               | Business Value                                                                                          |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| **ServiceNow Platform**                        | Custom tables, Scoped App, UI Action, Script Include, Flow Designer, AI Search integration, and system logs. | Centralized, auditable platform that accelerates incident response and supports operational compliance. |
+| **AWS Integration Server**                     | Feeds real-time EC2 instance data into ServiceNow.                                                           | Enables immediate detection of infrastructure issues, reducing downtime and customer impact.            |
+| **Flow Designer**                              | Orchestrates incident creation, AI Search, and Slack notifications.                                          | Streamlines workflows and reduces manual effort, improving mean time to resolution (MTTR).              |
+| **AI Search Custom Action**                    | Retrieves relevant KB articles during incident workflows.                                                    | Scales institutional knowledge, giving engineers instant access to remediation guidance.                |
+| **Slack Webhook**                              | Sends real-time alerts and remediation guidance to the DevOps team channel.                                  | Enables faster response and proactive mitigation, protecting service availability.                      |
+| **UI Action (`trigger_EC2_Remediation.js`)**   | One-click EC2 remediation from the form.                                                                     | Simplifies recovery steps, reduces errors, and accelerates incident resolution.                         |
+| **Script Include (`EC2RemediationHelper.js`)** | Executes API calls from ServiceNow to AWS for remediation.                                                   | Automates critical tasks, ensuring consistent and reliable infrastructure recovery.                     |
+| **Draw\.io**                                   | Visualizes system architecture.                                                                              | Supports stakeholder alignment and easier onboarding of new team members.                               |
+| **ServiceNow Update Set**                      | Captures and transports configured artifacts (`ec2-remediation-system.xml`).                                 | Ensures repeatable, low-risk deployment across environments.                                            |
+| **Knowledge Base Articles**                    | Documents remediation steps with AI-discoverable keywords.                                                   | Preserves institutional knowledge and enables AI-assisted decision-making during incidents.             |
 
 
 ## Architecture Diagram
@@ -120,11 +126,11 @@ It logs the request, response, and any errors to a remediation log table, then r
 **Action 2:** AI Search Custom
 ![AI Search Custom](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/011%20flow%20a2%20ai%20search.png?raw=true)
 
-**Action 3:** Accessing Flow Variables  
+**Action 3a:** Accessing Flow Variables  
 
 ![Accessing Flow Variables](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/013%20flow%20a3_1%20variable%20config.png?raw=true)
 
-**Action 3:** Defining Flow Variables  
+**Action 3b:** Defining Flow Variables  
 
 ![Defining Flow Variables](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/014%20flow%20a3_2%20variable%20definition.png?raw=true)
 
@@ -235,7 +241,7 @@ In the input (blue), I entered **"Knowledge Portal Search Configuration"**.
 
 But the output (green) showed the system used **"Service Portal Default Search Application"** instead.
 
-That’s when it clicked—the script couldn’t find my app and activated the fallback clause:
+That’s when it clicked! The script couldn’t find my app and activated the fallback clause:
 
 ```js
 // Fallback to any search config containing 'Search'
@@ -262,7 +268,7 @@ The Search Profile showed me the Search Sources tied to the **Service Portal Def
 
 I had been advised to move my article into the **"IT" Knowledge Base** since it was the only one the AI Search Custom could find.
 
-That advice worked—but I finally understood why:
+That advice worked at the time, but now I finally understood why:
 The **Service Portal Default Search Application** didn’t include the "Knowledge" KB as a source!
 
 After adding the "Knowledge" KB to the Search Sources, the article became searchable.
@@ -307,27 +313,25 @@ After **70 updates**, I was able to reliably track our instance status.
 
 ## Optimization
 
-- Flow Improvements
-  -   Flow Variables
-  -   Do and Wait Until Trigger
-  -   Record Resolution
-  -   Notification Insights
-
-- AI Search Custom Improvements
-  -   Article Linking
-  -   Expanding Search Sources
-
+| Area                  | Improvement / Feature     | Business Value                                                                           | Business Value Category           |
+| --------------------- | ------------------------- | ---------------------------------------------------------------------------------------- | --------------------------------- |
+| **Flow Improvements** | Flow Variables            | Reduces manual errors and accelerates incident handling.                                 | Operational Efficiency            |
+|                       | Do and Wait Until Trigger | Ensures accurate status updates, improving reliability and visibility.                   | Reliability / Accuracy            |
+|                       | Record Resolution         | Automatically updates related Incident records, reducing follow-up work for engineers.   | Operational Efficiency            |
+|                       | Notification Insights     | Captures workflow metrics, enabling process improvements and faster response times.      | Insights & Continuous Improvement |
+| **AI Search Custom**  | Article Linking           | Connects incidents to relevant Knowledge Base articles, accelerating problem resolution. | Knowledge Management              |
+|                       | Expanding Search Sources  | Ensures critical guidance is discoverable, improving MTTR and scaling knowledge sharing. | Knowledge Management              |
 
 
 ## DevOps Usage
-Instructions for Netflix DevOps engineers on using the remediation system
 
-- Time between resets vary
--   Look into standardizing instance reset time. From 2 - 6 minutes for Trigger Remedition UI Action to result in Instance Status update.
+The EC2 Remediation System provides Netflix DevOps engineers with a **reliable, semi-automated workflow** for detecting and remediating EC2 instance issues:
 
-
-
-
+* **Rapid response:** Reduces the time to identify and remediate failing instances from up to 45 minutes to just a few minutes.
+* **Consistent remediation:** One-click **Trigger EC2 Remediation** UI Action ensures predictable, error-free recovery.
+* **Real-time visibility:** Slack notifications and updated Incident records keep engineers informed of progress and status changes.
+* **Operational insights:** Metrics from Flow Designer allow engineers to monitor reset times and identify opportunities for standardization (currently 2–6 minutes).
+* **Reduced manual workload:** Automation frees engineers to focus on higher-value tasks instead of repetitive incident management.
 
 
 

@@ -40,9 +40,15 @@ The Studio saved me a lot of time and kept me in control of my application devel
 ### Step 2: Table Setup
 
 **EC2 Instance Table**
+Tracks the status of our EC2 instance. This table is connected to the Integration Server through an API.
+
+The server is sending POST and PUT requests to our table.
 ![EC2 Instance Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/001%20ec2%20instance%20table.png?raw=true)
 
 **Remediation Log Table**
+Tracks the status of our EC2 instance Remediation Attempts. This table is connected to the Integration Server through an API.
+
+The server is sending POST requests to our table.
 ![Remediation Log Table](https://github.com/joesghub/ec2-remediation-system/blob/main/screenshots/002%20remediation%20table.png?raw=true)
 
 

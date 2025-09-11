@@ -322,7 +322,7 @@ After **70 updates**, I was able to reliably track our instance status.
 |                       | Record Resolution         | Automatically updates related Incident records, reducing follow-up work for engineers.   | Operational Efficiency            |
 |                       | Notification Insights     | Captures workflow metrics, enabling process improvements and faster response times.      | Insights & Continuous Improvement |
 | **AI Search Custom**  | Article Linking           | Connects incidents to relevant Knowledge Base articles, accelerating problem resolution. | Knowledge Management              |
-|                       | Expanding Search Sources  | Ensures critical guidance is discoverable, improving MTTR and scaling knowledge sharing. | Knowledge Management              |
+|                       | Expanding Search Sources  | Ensures critical guidance is discoverable, improving MTTR (Mean Time to Repair) and scaling knowledge sharing. | Knowledge Management              |
 
 
 ## DevOps Usage
